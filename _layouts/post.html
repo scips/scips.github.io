@@ -1,0 +1,36 @@
+---
+layout: default
+---
+          <article id="main" class="wrapper alt style2">
+            <section class="hero">
+              <div class="image">
+                {% assign alt = "" %}
+                {% if page.meta.alt %}
+                {% assign alt = page.meta.alt %}
+                {% endif %}
+                {% assign credit = "" %}
+                {% if page.meta.credit %}
+                {% assign credit = " - " | append: page.meta.credit %}
+                {% endif %}
+                <img 
+                  {% if page.meta.image %}
+                  src="{{ page.meta.image }}"
+                  {% endif %}
+                  alt="{{ alt | append: credit }}" />
+              </div>
+              <div class="meta">
+                <h2>{{ page.title }}</h2>
+                <p>{{ page.meta.subtitle }}</p>
+                {% if page.meta.tldr %}
+                  <p class="tldr">
+                    <span class="title">tl;dr</span>
+                    {{page.meta.tldr}}
+                  </p>
+                {% endif %}
+              </div>
+            </section>
+
+            <section class="text-wrapper inner">
+              {{ content }}
+            </section>
+          </article>
