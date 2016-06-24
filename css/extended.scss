@@ -1,0 +1,106 @@
+---
+# (the dashes are enough)
+---
+$baseurl: '{{ site.baseurl }}/images';
+
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+// @import url('https://fonts.googleapis.com/css?family=Josefin+Slab:400,600');
+
+  @include skel-breakpoints((
+    xlarge: '(max-width: 1680px)',
+    large: '(max-width: 1280px)',
+    medium: '(max-width: 980px)',
+    small: '(max-width: 736px)',
+    xsmall: '(max-width: 480px)'
+  ));
+/* Credit */
+  .tldr {
+    background: rgba(0,0,0,0.2);
+    text-align: left;
+    position: relative;
+    
+    >.title {
+      font-size: 2em;
+      vertical-align: top;
+      float: left;
+      line-height: 1em;
+    }
+
+    &>.title::after {
+      content: "\00a0";
+    }
+  }
+
+/* Text wrapper */
+  .text-wrapper {
+    font-family: _font(family-serif);
+    font-size: 15pt;
+    font-weight: _font(weight);
+  }
+/* Hero */
+  .hero {
+    // by default image left, text right
+    @include vendor('align-items', 'center');
+    @include vendor('display', 'flex');
+    position: relative;
+
+    .image {
+      border-radius: 0;
+      width: 100%;
+      // remove the main inline-block
+      display: block;
+
+      img {
+        border-radius: 0;
+        width: 100%;
+      }
+    }
+
+    .meta {
+      @include padding(4em, 3em);
+      max-width: none;
+      text-align: center;
+      width: 100%;
+    }
+
+    @include breakpoint(large) {
+      // image and text over
+      display: block;
+      .image {
+        width: 100%;
+      }
+
+      .meta {
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        background: rgba(0,0,0,0.2);
+      }
+    }
+
+    @include breakpoint(medium) {
+      br {
+        display: none;
+      }
+
+      .meta {
+        @include padding(4em, 3em);
+      }
+    }
+
+    @include breakpoint(small) {
+      // image and text under
+      .meta {
+        @include padding(3em, 2em);
+        max-width: none;
+        text-align: center;
+        width: 100%;
+        position: relative;
+        bottom: auto;
+        background: none;
+      }
+    }
+  }
