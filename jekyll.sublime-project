@@ -1,0 +1,21 @@
+{
+  "folders":
+  [
+    {
+      "follow_symlinks": true,
+      "path": "/home/scips/Workspace/scips/scips.github.io/"
+    }
+  ],
+  "settings":
+  {
+    "Jekyll":
+    {
+      "posts_path": "/home/scips/Workspace/scips/scips.github.io/_posts",
+      "drafts_path": "/home/scips/Workspace/scips/scips.github.io/_drafts",
+      "uploads_path": "/home/scips/Workspace/scips/scips.github.io/uploads",
+      "jekyll_auto_find_paths": true
+    },
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true
+  }
+}
