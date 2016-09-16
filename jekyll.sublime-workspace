@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"text",
+				"text-align"
+			],
+			[
 				"source",
 				"sourceList"
 			],
@@ -510,15 +514,86 @@
 			[
 				"defa",
 				"defaultThumbnail"
-			],
-			[
-				"to",
-				"totalTime"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "_posts/2016-06-21-running.md",
+			"settings":
+			{
+				"buffer_size": 2670,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 4076,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_layouts/post.html",
+			"settings":
+			{
+				"buffer_size": 1208,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_config.yml",
+			"settings":
+			{
+				"buffer_size": 1008,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "---\n# Only the main Sass file needs front matter (the dashes are enough)\n---\n\n$baseurl: '{{ site.baseurl }}/images';\n\n@import 'libs/vars';\n@import 'libs/functions';\n@import 'libs/mixins';\n@import 'font-awesome.min.css';\n@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic');\n\n/*\n	Spectral by HTML5 UP\n	html5up.net | @n33co\n	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)\n*/\n\n	@import 'libs/skel';\n\n	@include skel-breakpoints((\n		xlarge: '(max-width: 1680px)',\n		large: '(max-width: 1280px)',\n		medium: '(max-width: 980px)',\n		small: '(max-width: 736px)',\n		xsmall: '(max-width: 480px)'\n	));\n\n	@include skel-layout((\n		reset: 'full',\n		boxModel: 'border',\n		grid: ( gutters: 1.5em )\n	));\n\n/* Basic */\n\n	@-ms-viewport {\n		width: device-width;\n	}\n\n	body {\n		background: _palette(bg);\n\n		&.is-loading {\n			*, *:before, *:after {\n				@include vendor('animation', 'none !important');\n				@include vendor('transition', 'none !important');\n			}\n		}\n	}\n\n	body, input, select, textarea {\n		color: _palette(fg);\n		font-family: _font(family);\n		font-size: 15pt;\n		font-weight: _font(weight);\n		letter-spacing: _size(letter-spacing);\n		line-height: 1.65em;\n\n		@include breakpoint(xlarge) {\n			font-size: 13pt;\n		}\n\n		@include breakpoint(large) {\n			font-size: 12pt;\n		}\n\n		@include breakpoint(small) {\n			font-size: 11pt;\n			letter-spacing: _size(letter-spacing) * 0.5;\n		}\n	}\n\n	a {\n		@include vendor('transition', ('color #{_duration(transitions)} ease', 'border-bottom-color #{_duration(transitions)} ease'));\n		border-bottom: dotted 1px;\n		color: inherit;\n		text-decoration: none;\n\n		&:hover {\n			border-bottom-color: transparent;\n		}\n	}\n\n	strong, b {\n		color: _palette(fg-bold);\n		font-weight: _font(weight-bold);\n	}\n\n	em, i {\n		font-style: italic;\n	}\n\n	p {\n		margin: 0 0 _size(element-margin) 0;\n	}\n\n	h1, h2, h3, h4, h5, h6 {\n		color: _palette(fg-bold);\n		font-weight: _font(weight-extrabold);\n		letter-spacing: _size(letter-spacing-alt);\n		line-height: 1em;\n		margin: 0 0 (_size(element-margin) * 0.5) 0;\n		text-transform: uppercase;\n\n		a {\n			color: inherit;\n			text-decoration: none;\n		}\n	}\n\n	h2 {\n		font-size: 1.35em;\n		line-height: 1.75em;\n\n		@include breakpoint(small) {\n			font-size: 1.1em;\n			line-height: 1.65em;\n		}\n	}\n\n	h3 {\n		font-size: 1.15em;\n		line-height: 1.75em;\n\n		@include breakpoint(small) {\n			font-size: 1em;\n			line-height: 1.65em;\n		}\n	}\n\n	h4 {\n		font-size: 1em;\n		line-height: 1.5em;\n	}\n\n	h5 {\n		font-size: 0.8em;\n		line-height: 1.5em;\n	}\n\n	h6 {\n		font-size: 0.7em;\n		line-height: 1.5em;\n	}\n\n	sub {\n		font-size: 0.8em;\n		position: relative;\n		top: 0.5em;\n	}\n\n	sup {\n		font-size: 0.8em;\n		position: relative;\n		top: -0.5em;\n	}\n\n	hr {\n		border: 0;\n		border-bottom: solid 2px _palette(border);\n		margin: (_size(element-margin) * 1.5) 0;\n\n		&.major {\n			margin: (_size(element-margin) * 2.25) 0;\n		}\n	}\n\n	blockquote {\n		border-left: solid 4px _palette(border);\n		font-style: italic;\n		margin: 0 0 _size(element-margin) 0;\n		padding: 0.5em 0 0.5em 2em;\n	}\n\n	code {\n		background: _palette(border-bg);\n		border-radius: 3px;\n		font-family: _font(family-fixed);\n		font-size: 0.9em;\n		letter-spacing: 0;\n		margin: 0 0.25em;\n		padding: 0.25em 0.65em;\n	}\n\n	pre {\n		-webkit-overflow-scrolling: touch;\n		font-family: _font(family-fixed);\n		font-size: 0.9em;\n		margin: 0 0 _size(element-margin) 0;\n\n		code {\n			display: block;\n			line-height: 1.75em;\n			padding: 1em 1.5em;\n			overflow-x: auto;\n		}\n	}\n\n	.align-left {\n		text-align: left;\n	}\n\n	.align-center {\n		text-align: center;\n	}\n\n	.align-right {\n		text-align: right;\n	}\n\n/* Section/Article */\n\n	section, article {\n		&.special {\n			text-align: center;\n		}\n	}\n\n	header {\n		p {\n			color: _palette(fg-light);\n			position: relative;\n			top: -0.25em;\n		}\n\n		h2 + p {\n		}\n\n		h3 + p {\n			font-size: 1.1em;\n		}\n\n		h4 + p,\n		h5 + p,\n		h6 + p {\n			font-size: 0.9em;\n		}\n\n		&.major {\n			margin: 0 0 (_size(element-margin) * 1.75) 0;\n\n			h2, h3, h4, h5, h6 {\n				border-bottom: solid 2px _palette(border);\n				display: inline-block;\n				padding-bottom: 1em;\n				position: relative;\n\n				&:after {\n					content: '';\n					display: block;\n					height: 1px;\n				}\n			}\n\n			p {\n				color: _palette(fg);\n				top: 0;\n			}\n\n			@include breakpoint(small) {\n				margin: 0 0 _size(element-margin) 0;\n			}\n		}\n\n		@include breakpoint(medium) {\n			br {\n				display: none;\n			}\n		}\n	}\n\n/* Form */\n\n	form {\n		margin: 0 0 _size(element-margin) 0;\n	}\n\n	label {\n		color: _palette(fg-bold);\n		display: block;\n		font-size: 0.9em;\n		font-weight: _font(weight-bold);\n		margin: 0 0 (_size(element-margin) * 0.5) 0;\n	}\n\n	input[type=\"text\"],\n	input[type=\"password\"],\n	input[type=\"email\"],\n	select,\n	textarea {\n		@include vendor('appearance', 'none');\n		background: _palette(border-bg);\n		border-radius: 3px;\n		border: none;\n		color: inherit;\n		display: block;\n		outline: 0;\n		padding: 0 1em;\n		text-decoration: none;\n		width: 100%;\n\n		&:invalid {\n			box-shadow: none;\n		}\n\n		&:focus {\n			box-shadow: 0 0 0 2px _palette(accent1, bg);\n		}\n	}\n\n	.select-wrapper {\n		@include icon;\n		display: block;\n		position: relative;\n\n		&:before {\n			@include vendor('pointer-events', 'none');\n			color: _palette(border);\n			content: '\\f078';\n			display: block;\n			height: _size(element-height);\n			line-height: _size(element-height);\n			position: absolute;\n			right: 0;\n			text-align: center;\n			top: 0;\n			width: _size(element-height);\n		}\n\n		select::-ms-expand {\n			display: none;\n		}\n	}\n\n	input[type=\"text\"],\n	input[type=\"password\"],\n	input[type=\"email\"],\n	select {\n		height: _size(element-height);\n	}\n\n	textarea {\n		padding: 0.75em 1em;\n	}\n\n	input[type=\"checkbox\"],\n	input[type=\"radio\"], {\n		@include vendor('appearance', 'none');\n		display: block;\n		float: left;\n		margin-right: -2em;\n		opacity: 0;\n		width: 1em;\n		z-index: -1;\n\n		& + label {\n			@include icon;\n			color: _palette(fg);\n			cursor: pointer;\n			display: inline-block;\n			font-size: 1em;\n			font-weight: _font(weight);\n			padding-left: (_size(element-height) * 0.6) + 0.75em;\n			padding-right: 0.75em;\n			position: relative;\n\n			&:before {\n				background: _palette(border-bg);\n				border-radius: 3px;\n				content: '';\n				display: inline-block;\n				height: (_size(element-height) * 0.6);\n				left: 0;\n				line-height: (_size(element-height) * 0.575);\n				position: absolute;\n				text-align: center;\n				top: 0;\n				width: (_size(element-height) * 0.6);\n			}\n		}\n\n		&:checked + label {\n			&:before {\n				background: _palette(bg);\n				color: _palette(fg-bold);\n				content: '\\f00c';\n			}\n		}\n\n		&:focus + label {\n			&:before {\n				box-shadow: 0 0 0 2px _palette(accent1, bg);\n			}\n		}\n	}\n\n	input[type=\"checkbox\"] {\n		& + label {\n			&:before {\n				border-radius: 3px;\n			}\n		}\n	}\n\n	input[type=\"radio\"] {\n		& + label {\n			&:before {\n				border-radius: 100%;\n			}\n		}\n	}\n\n	::-webkit-input-placeholder {\n		color: _palette(fg-light) !important;\n		opacity: 1.0;\n	}\n\n	:-moz-placeholder {\n		color: _palette(fg-light) !important;\n		opacity: 1.0;\n	}\n\n	::-moz-placeholder {\n		color: _palette(fg-light) !important;\n		opacity: 1.0;\n	}\n\n	:-ms-input-placeholder {\n		color: _palette(fg-light) !important;\n		opacity: 1.0;\n	}\n\n	.formerize-placeholder {\n		color: _palette(fg-light) !important;\n		opacity: 1.0;\n	}\n\n/* Box */\n\n	.box {\n		border-radius: 3px;\n		border: solid 2px _palette(border);\n		margin-bottom: _size(element-margin);\n		padding: 1.5em;\n\n		> :last-child,\n		> :last-child > :last-child,\n		> :last-child > :last-child > :last-child {\n			margin-bottom: 0;\n		}\n\n		&.alt {\n			border: 0;\n			border-radius: 0;\n			padding: 0;\n		}\n	}\n\n/* Icon */\n\n	.icon {\n		@include icon;\n		border-bottom: none;\n		position: relative;\n\n		> .label {\n			display: none;\n		}\n\n		&.major {\n			@include vendor('transform', 'rotate(-45deg)');\n			border-radius: 3px;\n			border: solid 2px _palette(border);\n			display: inline-block;\n			font-size: 1.35em;\n			height: calc(3em + 2px);\n			line-height: 3em;\n			text-align: center;\n			width: calc(3em + 2px);\n\n			&:before {\n				@include vendor('transform', 'rotate(45deg)');\n				display: inline-block;\n				font-size: 1.5em;\n			}\n\n			@include breakpoint(small) {\n				font-size: 1em;\n			}\n		}\n\n		&.style1 {\n			color: _palette(accent2, bg);\n		}\n\n		&.style2 {\n			color: _palette(accent3, bg);\n		}\n\n		&.style3 {\n			color: _palette(accent4, bg);\n		}\n	}\n\n/* Image */\n\n	.image {\n		border-radius: 3px;\n		border: 0;\n		display: inline-block;\n		position: relative;\n\n		img {\n			border-radius: 3px;\n			display: block;\n		}\n\n		&.left {\n			float: left;\n			margin: 0 2em 2em 0;\n			top: 0.25em;\n		}\n\n		&.right {\n			float: right;\n			margin: 0 0 2em 2em;\n			top: 0.25em;\n		}\n\n		&.left,\n		&.right {\n			max-width: 40%;\n\n			img {\n				width: 100%;\n			}\n		}\n\n		&.fit {\n			display: block;\n			margin: 0 0 _size(element-margin) 0;\n			width: 100%;\n\n			img {\n				width: 100%;\n			}\n		}\n	}\n\n/* List */\n\n	ol {\n		list-style: decimal;\n		margin: 0 0 _size(element-margin) 0;\n		padding-left: 1.25em;\n\n		li {\n			padding-left: 0.25em;\n		}\n	}\n\n	ul {\n		list-style: disc;\n		margin: 0 0 _size(element-margin) 0;\n		padding-left: 1em;\n\n		li {\n			padding-left: 0.5em;\n		}\n\n		&.alt {\n			list-style: none;\n			padding-left: 0;\n\n			li {\n				border-top: solid 1px _palette(border);\n				padding: 0.5em 0;\n\n				&:first-child {\n					border-top: 0;\n					padding-top: 0;\n				}\n			}\n		}\n\n		&.icons {\n			cursor: default;\n			list-style: none;\n			padding-left: 0;\n\n			li {\n				display: inline-block;\n				padding: 0 1em 0 0;\n\n				&:last-child {\n					padding-right: 0 !important;\n				}\n			}\n\n			&.major {\n				padding: 1em 0;\n\n				li {\n					padding-right: 3.5em;\n\n					@include breakpoint(small) {\n						padding: 0 1em !important;\n					}\n				}\n			}\n		}\n\n		&.actions {\n			cursor: default;\n			list-style: none;\n			padding-left: 0;\n\n			li {\n				display: inline-block;\n				padding: 0 (_size(element-margin) * 0.75) 0 0;\n				vertical-align: middle;\n\n				&:last-child {\n					padding-right: 0;\n				}\n			}\n\n			&.small {\n				li {\n					padding: 0 (_size(element-margin) * 0.375) 0 0;\n				}\n			}\n\n			&.vertical {\n				li {\n					display: block;\n					padding: (_size(element-margin) * 0.75) 0 0 0;\n\n					&:first-child {\n						padding-top: 0;\n					}\n\n					> * {\n						margin-bottom: 0;\n					}\n				}\n\n				&.small {\n					li {\n						padding: (_size(element-margin) * 0.375) 0 0 0;\n\n						&:first-child {\n							padding-top: 0;\n						}\n					}\n				}\n			}\n\n			&.fit {\n				display: table;\n				margin-left: (_size(element-margin) * -0.75);\n				padding: 0;\n				table-layout: fixed;\n				width: calc(100% + #{(_size(element-margin) * 0.75)});\n\n				li {\n					display: table-cell;\n					padding: 0 0 0 (_size(element-margin) * 0.75);\n\n					> * {\n						margin-bottom: 0;\n					}\n				}\n\n				&.small {\n					margin-left: (_size(element-margin) * -0.375);\n					width: calc(100% + #{(_size(element-margin) * 0.375)});\n\n					li {\n						padding: 0 0 0 (_size(element-margin) * 0.375);\n					}\n				}\n			}\n\n			@include breakpoint(small) {\n				li {\n					display: block;\n					padding: (_size(element-margin) * 0.5) 0 0 0;\n					text-align: center;\n					width: 100%;\n\n					&:first-child {\n						padding-top: 0;\n					}\n\n					> * {\n						margin: 0 auto !important;\n						max-width: 30em;\n						width: 100%;\n\n						&.icon {\n							&:before {\n								margin-left: -1em;\n							}\n						}\n					}\n				}\n\n				&.small {\n					li {\n						padding: (_size(element-margin) * 0.25) 0 0 0;\n\n						&:first-child {\n							padding-top: 0;\n						}\n					}\n				}\n			}\n		}\n	}\n\n	dl {\n		margin: 0 0 _size(element-margin) 0;\n	}\n\n/* Table */\n\n	.table-wrapper {\n		-webkit-overflow-scrolling: touch;\n		overflow-x: auto;\n	}\n\n	table {\n		margin: 0 0 _size(element-margin) 0;\n		width: 100%;\n\n		tbody {\n			tr {\n				border: solid 1px _palette(border);\n				border-left: 0;\n				border-right: 0;\n\n				&:nth-child(2n + 1) {\n					background-color: _palette(border-bg);\n				}\n			}\n		}\n\n		td {\n			padding: 0.75em 0.75em;\n		}\n\n		th {\n			color: _palette(fg-bold);\n			font-size: 0.9em;\n			font-weight: _font(weight-bold);\n			padding: 0 0.75em 0.75em 0.75em;\n			text-align: left;\n		}\n\n		thead {\n			border-bottom: solid 2px _palette(border);\n		}\n\n		tfoot {\n			border-top: solid 2px _palette(border);\n		}\n\n		&.alt {\n			border-collapse: separate;\n\n			tbody {\n				tr {\n					td {\n						border: solid 1px _palette(border);\n						border-left-width: 0;\n						border-top-width: 0;\n\n						&:first-child {\n							border-left-width: 1px;\n						}\n					}\n\n					&:first-child {\n						td {\n							border-top-width: 1px;\n						}\n					}\n				}\n			}\n\n			thead {\n				border-bottom: 0;\n			}\n\n			tfoot {\n				border-top: 0;\n			}\n		}\n	}\n\n/* Button */\n\n	input[type=\"submit\"],\n	input[type=\"reset\"],\n	input[type=\"button\"],\n	button,\n	.button {\n		@include vendor('appearance', 'none');\n		@include vendor('transition', ('background-color #{_duration(transitions)} ease-in-out', 'color #{_duration(transitions)} ease-in-out'));\n		background-color: transparent;\n		border-radius: 3px;\n		border: 0;\n		box-shadow: inset 0 0 0 2px _palette(border);\n		color: _palette(fg-bold);\n		cursor: pointer;\n		display: inline-block;\n		font-size: 0.8em;\n		font-weight: _font(weight-bold);\n		height: 3.125em;\n		letter-spacing: _size(letter-spacing-alt);\n		line-height: 3.125em;\n		padding: 0 2.75em;\n		text-align: center;\n		text-decoration: none;\n		text-transform: uppercase;\n		white-space: nowrap;\n		overflow: hidden;\n		text-overflow: ellipsis;\n\n		&:hover {\n			background-color: _palette(border-bg);\n		}\n\n		&:active {\n			background-color: _palette(border2-bg);\n		}\n\n		&.icon {\n			&:before {\n				margin-right: 0.5em;\n			}\n		}\n\n		&.fit {\n			display: block;\n			margin: 0 0 (_size(element-margin) * 0.5) 0;\n			width: 100%;\n		}\n\n		&.small {\n			font-size: 0.8em;\n		}\n\n		&.big {\n			font-size: 1.35em;\n		}\n\n		&.special {\n			background-color: _palette(accent6, bg);\n			box-shadow: none !important;\n			color: _palette(accent6, fg-bold) !important;\n\n			&:hover {\n				background-color: lighten(_palette(accent6, bg), 5) !important;\n			}\n\n			&:active {\n				background-color: darken(_palette(accent6, bg), 5) !important;\n			}\n		}\n\n		&.disabled,\n		&:disabled {\n			@include vendor('pointer-events', 'none');\n			opacity: 0.25;\n		}\n\n		@include breakpoint(small) {\n			height: 3.75em;\n			line-height: 3.75em;\n		}\n	}\n\n/* Features */\n\n	.features {\n		@include vendor('display', 'flex');\n		@include vendor('flex-wrap', 'wrap');\n		@include vendor('justify-content', 'center');\n		list-style: none;\n		padding: 0;\n		width: 100%;\n\n		li {\n			@include padding(4em, 4em, (0,0,0,2em));\n			display: block;\n			position: relative;\n			text-align: left;\n			width: 50%;\n\n			@for $i from 1 through _misc(max-features) {\n				$j: 0.035 * $i;\n\n				&:nth-child(#{$i}) {\n					background-color: rgba(0,0,0, $j);\n				}\n			}\n\n			&:before {\n				display: block;\n				color: _palette(accent2, bg);\n				position: absolute;\n				left: 1.75em;\n				top: 2.75em;\n				font-size: 1.5em;\n			}\n\n			&:nth-child(1) {\n				border-top-left-radius: 3px;\n			}\n\n			&:nth-child(2) {\n				border-top-right-radius: 3px;\n			}\n\n			&:nth-last-child(1) {\n				border-bottom-right-radius: 3px;\n			}\n\n			&:nth-last-child(2) {\n				border-bottom-left-radius: 3px;\n			}\n\n			@include breakpoint(medium) {\n				@include padding(3em, 2em);\n				text-align: center;\n\n				&:before {\n					left: 0;\n					margin: 0 0 (_size(element-margin) * 0.5) 0;\n					position: relative;\n					top: 0;\n				}\n			}\n\n			@include breakpoint(small) {\n				@include padding(3em, 0);\n				background-color: transparent !important;\n				border-top: solid 2px _palette(border);\n				width: 100%;\n\n				&:first-child {\n					border-top: 0;\n				}\n			}\n		}\n	}\n\n/* Spotlight */\n\n	.spotlight {\n		@include vendor('align-items', 'center');\n		@include vendor('display', 'flex');\n\n		.image {\n			@include vendor('order', '1');\n			border-radius: 0;\n			width: 40%;\n\n			img {\n				border-radius: 0;\n				width: 100%;\n			}\n		}\n\n		.content {\n			@include padding(2em, 4em);\n			@include vendor('order', '2');\n			max-width: 48em;\n			width: 60%;\n		}\n\n		&:nth-child(2n) {\n			@include vendor('flex-direction', 'row-reverse');\n		}\n\n		@for $i from 1 through _misc(max-spotlights) {\n			$j: 0.075 * $i;\n\n			&:nth-child(#{$i}) {\n				background-color: rgba(0,0,0, $j);\n			}\n		}\n\n		@include breakpoint(large) {\n			.image {\n				width: 45%;\n			}\n\n			.content {\n				width: 55%;\n			}\n		}\n\n		@include breakpoint(medium) {\n			display: block;\n\n			br {\n				display: none;\n			}\n\n			.image {\n				width: 100%;\n			}\n\n			.content {\n				@include padding(4em, 3em);\n				max-width: none;\n				text-align: center;\n				width: 100%;\n			}\n		}\n\n		@include breakpoint(small) {\n			.content {\n				@include padding(3em, 2em);\n			}\n		}\n	}\n\n/* Wrapper */\n\n	@mixin wrapper($p) {\n		background-color: _palette($p, bg);\n		color: _palette($p, fg);\n\n		// Basic\n\n			strong, b {\n				color: _palette($p, fg-bold);\n			}\n\n			h2, h3, h4, h5, h6 {\n				color: _palette($p, fg-bold);\n			}\n\n			hr {\n				border-color: _palette($p, border);\n			}\n\n			blockquote {\n				border-color: _palette($p, border);\n			}\n\n			code {\n				background: _palette($p, border-bg);\n			}\n\n		// Section/Article\n\n			header {\n				p {\n					color: _palette($p, fg-light);\n				}\n\n				&.major {\n					h2, h3, h4, h5, h6 {\n						border-color: _palette($p, border);\n					}\n\n					p {\n						color: _palette($p, fg);\n					}\n				}\n			}\n\n		// Form\n\n			label {\n				color: _palette($p, fg-bold);\n			}\n\n			input[type=\"text\"],\n			input[type=\"password\"],\n			input[type=\"email\"],\n			select,\n			textarea {\n				background: _palette($p, border-bg);\n			}\n\n			.select-wrapper {\n				&:before {\n					color: _palette($p, border);\n				}\n			}\n\n			input[type=\"checkbox\"],\n			input[type=\"radio\"], {\n				& + label {\n					color: _palette($p, fg);\n\n					&:before {\n						background: _palette($p, border-bg);\n					}\n				}\n\n				&:checked + label {\n					&:before {\n						background: _palette($p, fg-bold);\n						color: _palette($p, bg);\n					}\n				}\n			}\n\n			::-webkit-input-placeholder {\n				color: _palette($p, fg-light) !important;\n			}\n\n			:-moz-placeholder {\n				color: _palette($p, fg-light) !important;\n			}\n\n			::-moz-placeholder {\n				color: _palette($p, fg-light) !important;\n			}\n\n			:-ms-input-placeholder {\n				color: _palette($p, fg-light) !important;\n			}\n\n			.formerize-placeholder {\n				color: _palette($p, fg-light) !important;\n			}\n\n		// Icon\n\n			.icon {\n				&.major {\n					border-color: _palette($p, border);\n				}\n			}\n\n		// List\n\n			ul {\n				&.alt {\n					li {\n						border-color: _palette($p, border);\n					}\n				}\n			}\n\n		// Table\n\n			table {\n				tbody {\n					tr {\n						border-color: _palette($p, border);\n\n						&:nth-child(2n + 1) {\n							background-color: _palette($p, border-bg);\n						}\n					}\n				}\n\n				th {\n					color: _palette($p, fg-bold);\n				}\n\n				thead {\n					border-color: _palette($p, border);\n				}\n\n				tfoot {\n					border-color: _palette($p, border);\n				}\n\n				&.alt {\n					tbody {\n						tr {\n							td {\n								border-color: _palette($p, border);\n							}\n						}\n					}\n				}\n			}\n\n		// Button\n\n			input[type=\"submit\"],\n			input[type=\"reset\"],\n			input[type=\"button\"],\n			button,\n			.button {\n				box-shadow: inset 0 0 0 2px _palette($p, border);\n				color: _palette($p, fg-bold);\n\n				&:hover {\n					background-color: _palette($p, border-bg);\n				}\n\n				&:active {\n					background-color: _palette($p, border2-bg);\n				}\n			}\n\n		// Features\n\n			.features {\n				li {\n					@include breakpoint(small) {\n						border-top-color: _palette($p, border);\n					}\n				}\n			}\n\n	}\n\n	.wrapper {\n		@include padding(6em, 0);\n\n		> .inner {\n			width: 60em;\n			margin: 0 auto;\n\n			@include breakpoint(large) {\n				width: 90%;\n			}\n\n			@include breakpoint(medium) {\n				width: 100%;\n			}\n		}\n\n		&.alt {\n			padding: 0;\n		}\n\n		&.style1 {\n			@include wrapper(accent1);\n		}\n\n		&.style2 {\n			background-color: _palette(bg);\n		}\n\n		&.style3 {\n			@include wrapper(accent5);\n		}\n\n		&.style4 {\n			background-color: transparent;\n		}\n\n		&.style5 {\n			@include wrapper(accent7);\n		}\n\n		@include breakpoint(medium) {\n			@include padding(4em, 3em);\n		}\n\n		@include breakpoint(small) {\n			@include padding(3em, 2em);\n		}\n	}\n\n/* Page Wrapper + Menu */\n\n	#page-wrapper {\n		@include vendor('transition', 'opacity #{_duration(menu)} ease');\n		opacity: 1;\n		padding-top: 3em;\n\n		&:before {\n			background: rgba(0,0,0,0);\n			content: '';\n			display: block;\n			display: none;\n			height: 100%;\n			left: 0;\n			position: fixed;\n			top: 0;\n			width: 100%;\n			z-index: _misc(z-index-base) + 1;\n		}\n	}\n\n	#menu {\n		@include vendor('transform', 'translateX(20em)');\n		@include vendor('transition', 'transform #{_duration(menu)} ease');\n		-webkit-overflow-scrolling: touch;\n		background: _palette(accent1, bg);\n		color: _palette(accent1, fg-bold);\n		height: 100%;\n		max-width: 80%;\n		overflow-y: auto;\n		padding: 3em 2em;\n		position: fixed;\n		right: 0;\n		top: 0;\n		width: 20em;\n		z-index: _misc(z-index-base) + 2;\n\n		ul {\n			list-style: none;\n			padding: 0;\n\n			> li {\n				border-top: solid 1px _palette(accent1, border);\n				margin: 0.5em 0 0 0;\n				padding: 0.5em 0 0 0;\n\n				&:first-child {\n					border-top: 0 !important;\n					margin-top: 0 !important;\n					padding-top: 0 !important;\n				}\n\n				> a {\n					border: 0;\n					color: inherit;\n					display: block;\n					font-size: 0.8em;\n					letter-spacing: _size(letter-spacing-alt);\n					outline: 0;\n					text-decoration: none;\n					text-transform: uppercase;\n\n					@include breakpoint(small) {\n						line-height: 3em;\n					}\n				}\n			}\n		}\n\n		.close {\n			background-image: url('images/close.svg');\n			background-position: 4.85em 1em;\n			background-repeat: no-repeat;\n			border: 0;\n			cursor: pointer;\n			display: block;\n			height: 3em;\n			position: absolute;\n			right: 0;\n			top: 0;\n			vertical-align: middle;\n			width: 7em;\n		}\n\n		@include breakpoint(small) {\n			padding: 3em 1.5em;\n		}\n	}\n\n	body.is-menu-visible {\n		#page-wrapper {\n			opacity: 0.35;\n\n			&:before {\n				display: block;\n			}\n		}\n\n		#menu {\n			@include vendor('transform', 'translateX(0)');\n		}\n	}\n\n/* Header */\n\n	#header {\n		@include vendor('transition', 'background-color #{_duration(transitions)} ease');\n		background: _palette(bg);\n		height: 3em;\n		left: 0;\n		line-height: 3em;\n		position: fixed;\n		top: 0;\n		width: 100%;\n		z-index: _misc(z-index-base);\n\n		h1 {\n			@include vendor('transition', 'opacity #{_duration(transitions)} ease');\n			height: inherit;\n			left: 1.25em;\n			line-height: inherit;\n			position: absolute;\n			top: 0;\n\n			a {\n				border: 0;\n				display: block;\n				height: inherit;\n				line-height: inherit;\n\n				@include breakpoint(small) {\n					font-size: 0.8em;\n				}\n			}\n		}\n\n		nav {\n			height: inherit;\n			line-height: inherit;\n			position: absolute;\n			right: 0;\n			top: 0;\n\n			> ul {\n				list-style: none;\n				margin: 0;\n				padding: 0;\n				white-space: nowrap;\n\n				> li {\n					display: inline-block;\n					padding: 0;\n\n					> a {\n						border: 0;\n						color: _palette(fg-bold);\n						display: block;\n						font-size: 0.8em;\n						letter-spacing: _size(letter-spacing-alt);\n						padding: 0 1.5em;\n						text-transform: uppercase;\n\n						&.menuToggle {\n							outline: 0;\n							position: relative;\n\n							&:after {\n								background-image: url('images/bars.svg');\n								background-position: right center;\n								background-repeat: no-repeat;\n								content: '';\n								display: inline-block;\n								height: 3.75em;\n								vertical-align: top;\n								width: 2em;\n							}\n\n							@include breakpoint(small) {\n								padding: 0 1.5em;\n\n								span {\n									display: none;\n								}\n							}\n						}\n\n						@include breakpoint(small) {\n							padding: 0 0 0 1.5em;\n						}\n					}\n\n					&:first-child {\n						margin-left: 0;\n					}\n				}\n			}\n		}\n\n		&.alt {\n			background: transparent;\n\n			h1 {\n				@include vendor('pointer-events', 'none');\n				opacity: 0;\n			}\n		}\n	}\n\n/* Banner */\n\n	#banner {\n		@include vendor('display', 'flex');\n		@include vendor('flex-direction', 'column');\n		@include vendor('justify-content', 'center');\n		cursor: default;\n		height: 100vh;\n		min-height: 35em;\n		overflow: hidden;\n		position: relative;\n		text-align: center;\n\n		h2 {\n			@include vendor('transform', 'scale(1)');\n			@include vendor('transition', ('transform 0.5s ease', 'opacity 0.5s ease'));\n			display: inline-block;\n			font-size: 1.75em;\n			opacity: 1;\n			padding: 0.35em 1em;\n			position: relative;\n			z-index: 1;\n\n			&:before, &:after {\n				@include vendor('transition', 'width 0.85s ease');\n				@include vendor('transition-delay', '0.25s');\n				background: _palette(fg-bold);\n				content: '';\n				display: block;\n				height: 2px;\n				position: absolute;\n				width: 100%;\n			}\n\n			&:before {\n				top: 0;\n				left: 0;\n			}\n\n			&:after {\n				bottom: 0;\n				right: 0;\n			}\n		}\n\n		p {\n			letter-spacing: _size(letter-spacing-alt);\n			text-transform: uppercase;\n\n			a {\n				color: inherit;\n			}\n		}\n\n		.more {\n			@include vendor('transition', ('transform 0.75s ease', 'opacity 0.75s ease'));\n			@include vendor('transition-delay', '3.5s');\n			@include vendor('transform', 'translateY(0)');\n			border: none;\n			bottom: 0;\n			color: inherit;\n			font-size: 0.8em;\n			height: 8.5em;\n			left: 50%;\n			letter-spacing: _size(letter-spacing-alt);\n			margin-left: -8.5em;\n			opacity: 1;\n			outline: 0;\n			padding-left: _size(letter-spacing-alt);\n			position: absolute;\n			text-align: center;\n			text-transform: uppercase;\n			width: 16em;\n			z-index: 1;\n\n			&:after {\n				background-image: url('images/arrow.svg');\n				background-position: center;\n				background-repeat: no-repeat;\n				background-size: contain;\n				bottom: 4em;\n				content: '';\n				display: block;\n				height: 1.5em;\n				left: 50%;\n				margin: 0 0 0 -0.75em;\n				position: absolute;\n				width: 1.5em;\n			}\n		}\n\n		&:after {\n			@include vendor('pointer-events', 'none');\n			@include vendor('transition', 'opacity #{_duration(fadein)} ease-in-out');\n			@include vendor('transition-delay', '1.25s');\n			content: '';\n			background: _palette(bg);\n			display: block;\n			width: 100%;\n			height: 100%;\n			position: absolute;\n			left: 0;\n			top: 0;\n			opacity: 0;\n		}\n\n		@include breakpoint(small) {\n			@include padding(7em, 3em);\n			height: auto;\n			min-height: 0;\n\n			h2 {\n				font-size: 1.25em;\n			}\n\n			br {\n				display: none;\n			}\n\n			.more {\n				display: none;\n			}\n		}\n	}\n\n	body.is-loading {\n		#banner {\n			h2 {\n				@include vendor('transform', 'scale(0.95)');\n				opacity: 0;\n\n				&:before, &:after {\n					width: 0;\n				}\n			}\n\n			.more {\n				@include vendor('transform', 'translateY(8.5em)');\n				opacity: 0;\n			}\n\n			&:after {\n				opacity: 1;\n			}\n		}\n	}\n\n/* CTA */\n\n	#cta {\n		.inner {\n			@include vendor('display', 'flex');\n			max-width: 45em;\n\n			header {\n				@include vendor('order', '1');\n				padding-right: 3em;\n				width: 70%;\n\n				p {\n					color: inherit;\n				}\n			}\n\n			.actions {\n				@include vendor('order', '2');\n				width: 30%;\n			}\n\n			@include breakpoint(medium) {\n				display: block;\n				text-align: center;\n\n				header {\n					padding-right: 0;\n					width: 100%;\n				}\n\n				.actions {\n					margin-left: auto;\n					margin-right: auto;\n					max-width: 20em;\n					width: 100%;\n				}\n			}\n\n			@include breakpoint(small) {\n				.actions {\n					max-width: none;\n				}\n			}\n		}\n	}\n\n/* Main */\n\n	#main {\n		> header {\n			@include padding(12em, 0);\n			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url(\"https://images.unsplash.com/photo-1457790020702-f4880db801ed?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=0ea7b5aeb0c5d2856408d88bae4362ec\")'));\n			background-attachment: fixed;\n			background-position: center center;\n			background-repeat: no-repeat;\n			background-size: cover;\n			text-align: center;\n\n			h2 {\n				font-size: 1.75em;\n				margin: 0 0 (_size(element-margin) * 0.25) 0;\n			}\n\n			p {\n				color: inherit;\n				letter-spacing: _size(letter-spacing-alt);\n				text-transform: uppercase;\n				top: 0;\n\n				a {\n					color: inherit;\n				}\n			}\n\n			@include breakpoint(xlarge) {\n				@include padding(10em, 0);\n			}\n\n			@include breakpoint(large) {\n				@include padding(8em, 3em);\n			}\n\n			@include breakpoint(medium) {\n				@include padding(10em, 3em);\n			}\n\n			@include breakpoint(small) {\n				@include padding(5em, 3em);\n\n				h2 {\n					font-size: 1.25em;\n					margin: 0 0 (_size(element-margin) * 0.5) 0;\n				}\n			}\n		}\n	}\n\n	body.is-mobile {\n		#main {\n			> header {\n				background-attachment: scroll;\n			}\n		}\n	}\n\n/* Footer */\n\n	#footer {\n		@include padding(6em, 0);\n		background-color: darken(_palette(bg), 8);\n		text-align: center;\n\n		.icons {\n			font-size: 1.25em;\n\n			a {\n				color: _palette(fg-light);\n\n				&:hover {\n					color: _palette(fg);\n				}\n			}\n		}\n\n		.copyright {\n			color: _palette(fg-light);\n			font-size: 0.8em;\n			letter-spacing: _size(letter-spacing-alt);\n			list-style: none;\n			padding: 0;\n			text-transform: uppercase;\n\n			li {\n				border-left: solid 1px _palette(fg-light);\n				display: inline-block;\n				line-height: 1em;\n				margin-left: 1em;\n				padding-left: 1em;\n\n				&:first-child {\n					border-left: 0;\n					margin-left: 0;\n					padding-left: 0;\n				}\n\n				a {\n					color: inherit;\n\n					&:hover {\n						color: _palette(fg);\n					}\n				}\n\n				@include breakpoint(xsmall) {\n					border: 0;\n					display: block;\n					line-height: 1.65em;\n					margin: 0;\n					padding: 0.5em 0;\n				}\n			}\n		}\n\n		@include breakpoint(medium) {\n			@include padding(4em, 3em);\n		}\n\n		@include breakpoint(small) {\n			@include padding(3em, 2em);\n		}\n	}\n\n/* Landing */\n\n	body.landing {\n		#page-wrapper {\n			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url(\"https://images.unsplash.com/photo-1457790020702-f4880db801ed?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=0ea7b5aeb0c5d2856408d88bae4362ec\")'));\n			background-attachment: fixed;\n			background-position: center center;\n			background-repeat: no-repeat;\n			background-size: cover;\n			padding-top: 0;\n		}\n\n		#footer {\n			background-color: darken(transparentize(_palette(bg), 0.1), 8);\n		}\n	}\n\n	body.is-mobile {\n		&.landing {\n			#page-wrapper {\n				background: none;\n			}\n\n			#banner,\n			.wrapper.style4 {\n				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url(\"https://images.unsplash.com/photo-1457790020702-f4880db801ed?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=0ea7b5aeb0c5d2856408d88bae4362ec\")'));\n				background-position: center center;\n				background-repeat: no-repeat;\n				background-size: cover;\n			}\n\n			#footer {\n				background-color: darken(_palette(bg), 8);\n			}\n		}\n	}\n",
+			"file": "css/main.scss",
+			"file_size": 30368,
+			"file_write_time": 131110247196540820,
+			"settings":
+			{
+				"buffer_size": 30289,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_sass/libs/_vars.scss",
+			"settings":
+			{
+				"buffer_size": 2823,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/extended.scss",
+			"settings":
+			{
+				"buffer_size": 2032,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_sass/libs/_skel.scss",
+			"settings":
+			{
+				"buffer_size": 15873,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_includes/header.html",
+			"settings":
+			{
+				"buffer_size": 982,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -527,10 +602,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 54.0,
-		"last_filter": "instal",
+		"height": 327.0,
+		"last_filter": "jekyll",
 		"selected_items":
 		[
+			[
+				"jekyll",
+				"Jekyll: Edit _config.yml"
+			],
 			[
 				"instal",
 				"Package Control: Install Package"
@@ -632,10 +711,23 @@
 	},
 	"expanded_folders":
 	[
-		"/home/scips/Workspace/scips/scips.github.io"
+		"/home/scips/Workspace/scips/scips.github.io",
+		"/home/scips/Workspace/scips/scips.github.io/_includes",
+		"/home/scips/Workspace/scips/scips.github.io/_layouts",
+		"/home/scips/Workspace/scips/scips.github.io/_sass",
+		"/home/scips/Workspace/scips/scips.github.io/_sass/libs",
+		"/home/scips/Workspace/scips/scips.github.io/_site",
+		"/home/scips/Workspace/scips/scips.github.io/css"
 	],
 	"file_history":
 	[
+		"/home/scips/Workspace/scips/scips.github.io/_site/css/main.css",
+		"/home/scips/Workspace/scips/scips.github.io/_sass/libs/_mixins.scss",
+		"/home/scips/Workspace/scips/scips.github.io/_includes/head.html",
+		"/home/scips/Workspace/scips/scips.github.io/_includes/footer.html",
+		"/home/scips/Workspace/scips/scips.github.io/_includes/analytics.html",
+		"/home/scips/Workspace/scips/scips.github.io/jekyll.sublime-project",
+		"/home/scips/.config/sublime-text-3/Packages/User/HTML.sublime-settings",
 		"/var/www/rtbf/cryo/websites/rtbf/embed/public/static/coffee/media/model/media.coffee",
 		"/var/www/rtbf/cryo/websites/rtbf/embed/public/static/coffee/media/model/live.coffee",
 		"/home/scips/Dropbox/Applications/tapiriik/2016-06-12_Running (1).tcx",
@@ -756,18 +848,11 @@
 		"/home/scips/Workspace/RTBF/AI/theaigames/fourinarow-client-es6/dist/maps/all.js.map",
 		"/home/scips/Workspace/RTBF/AI/theaigames/fourinarow-client-es6/dist/all.js.map",
 		"/home/scips/Workspace/RTBF/AI/theaigames/fourinarow-client-es6/test/test.es6",
-		"/home/scips/Workspace/RTBF/AI/theaigames/fourinarow-client-es6/test/testClient.es6",
-		"/home/scips/Workspace/Opendojo/graph-node-api/client/app/es6/main.es6",
-		"/home/scips/Workspace/RTBF/AI/theaigames/fourinarow-client-es6/src/index.es6",
-		"/home/scips/Workspace/RTBF/AI/theaigames/fourinarow-client-es6/src/client.es6",
-		"/home/scips/Workspace/RTBF/AI/theaigames/fourinarow-client-es6/dist/all.js",
-		"/home/scips/Workspace/RTBF/AI/theaigames/fourinarow-client-es6/src/game.es6",
-		"/home/scips/Workspace/RTBF/AI/theaigames/fourinarow-client-es6/package.json",
-		"/home/scips/Workspace/RTBF/AI/theaigames/fourinarow-client-es6/game.es6"
+		"/home/scips/Workspace/RTBF/AI/theaigames/fourinarow-client-es6/test/testClient.es6"
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -857,6 +942,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"font",
+			"flex",
+			"font",
+			"vendor",
+			"wrapper",
+			"max-spo",
+			"large",
+			"max-width",
+			"spo",
+			"style2",
 			"console.log",
 			"setSourceList",
 			"streamTokenApiUrl",
@@ -974,17 +1069,7 @@
 			"conver",
 			"item",
 			"recent",
-			"mainQuery",
-			"manualItems",
-			"getQueryColumns",
-			"            \n",
-			"getList",
-			"add",
-			"currentWhere",
-			"populate",
-			"audio",
-			"populate",
-			"fetchByCr"
+			"mainQuery"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1007,8 +1092,271 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "_posts/2016-06-21-running.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2670,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								145,
+								145
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MarkdownLight/MarkdownLight.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4076,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								807,
+								807
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "_layouts/post.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1014,
+								1014
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "_config.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								93,
+								93
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "css/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30289,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2508,
+								2508
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2138.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "_sass/libs/_vars.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2823,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								608,
+								608
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "css/extended.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								590,
+								590
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "_sass/libs/_skel.scss",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 15873,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "_includes/header.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 982,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8,
+								8
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
 			]
 		}
 	],
