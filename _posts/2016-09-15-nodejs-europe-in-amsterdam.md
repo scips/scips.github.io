@@ -8,7 +8,7 @@ meta:
     synopsys: personal note
     tldr: the venue, state of nodejs, µservice, debugging, logging, AI
     image: /assets/2016/nieu2016/venue_01.jpg
-    alt: Beurs van Verlage
+    alt: Beurs van Berlage
     credit: Sébastien Barbieri
 author:
     name: Sébastien Barbieri
