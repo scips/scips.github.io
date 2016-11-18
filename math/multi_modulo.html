@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
+  <title>Multiplication Table from a modulo point of view</title>
   <style>
 #board {
   border: 1px solid black;
@@ -36,6 +36,7 @@ function draw(modulo, from, to) {
       for (i=0; i < columns; i++) {
         var cx = space_betw / 2 + space_betw * i;
         var table = j * lineSize + i + from;
+      	ctx.strokeStyle='rgb(0,0,0)';
         ctx.strokeText(table, cx, cy);
         drawCircle(ctx, table, modulo, cx, cy, circleradius);
       }
@@ -44,6 +45,7 @@ function draw(modulo, from, to) {
 }
 
 function drawCircle(ctx, table, modulo, cx, cy, cr) {
+    ctx.strokeStyle='rgb(0,0,0)';
     ctx.beginPath();
     ctx.arc(cx,cy,cr,0,Math.PI*2, true);
     ctx.stroke();
@@ -91,17 +93,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
 </head>
 <body>
   <div>
-  <h1>Board</h1>
+  <h2>Board</h2>
   <canvas id="board" width='600' height='500'></canvas>
   </div>
   <div>
-  <h1>Settings</h1>
+  <h2>Settings</h2>
   <form>
     <label>modulo: <input type="text" name="modulo" /></label><br/>
     <label>from: <input type="text" name="from"></label><br/>
     <label>to: <input type="text" name="to"></label><br/>
     <input type="submit" name="submit" value="submit"/>
   </form>
+  </div>
+  <div>
+    <h2>Hack it on jsbin</h2>
+    <a class="jsbin-embed" href="http://jsbin.com/qujisap/embed?js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.40.2"></script>
   </div>
 </body>
 </html>
