@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+#board {
+  border: 1px solid black;
+}
+  </style>
+  <script>
+function getCoord(i, cx, cy, cr, modulo) {
+  var angle_step = (Math.PI * 2)/modulo;
+  var alpha = (-Math.PI/2) + angle_step * i;
+  var x = cx + cr * Math.cos(alpha);
+  var y = cy + cr * Math.sin(alpha);
+  return {x: x, y: y};
+}
+
+function draw(modulo, from, to) {
+  const circleradius = 50;
+  const space_betw = circleradius * 3;
+  var board = document.getElementById('board');
+  if (board.getContext) {
+    var ctx = board.getContext('2d');
+    ctx.clearRect(0, 0, board.width, board.height);
+
+    var circleCount = Math.abs(from-to)+1;
+    var lines = Math.ceil(circleCount * space_betw / board.width);
+    var lineSize = Math.ceil(circleCount / lines);
+    for (j=0; j < lines; j++) {
+      var columns = Math.min(lineSize, circleCount-j*lineSize);
+      var cy = space_betw / 2 + space_betw * j;
+      console.log(circleCount, lines, lineSize, columns);
+      for (i=0; i < columns; i++) {
+        var cx = space_betw / 2 + space_betw * i;
+        var table = j * lineSize + i + from;
+        ctx.strokeText(table, cx, cy);
+        drawCircle(ctx, table, modulo, cx, cy, circleradius);
+      }
+    }
+  }
+}
+
+function drawCircle(ctx, table, modulo, cx, cy, cr) {
+    ctx.beginPath();
+    ctx.arc(cx,cy,cr,0,Math.PI*2, true);
+    ctx.stroke();
+    
+    for (var i = 0; i < modulo; i++) {
+      var coordNum = getCoord(i, cx-3, cy+3, cr+10, modulo);
+      // letter
+      ctx.strokeStyle='rgb(0,0,0)';
+      ctx.strokeText(i, coordNum.x, coordNum.y);
+      var coordLineFrom = getCoord(i+1, cx, cy, cr, modulo);
+      var coordLineTo = getCoord( ((i+1)*table)%modulo, cx, cy, cr, modulo);
+      // lines
+      ctx.strokeStyle='rgb(255,0,0)';
+      ctx.beginPath();
+      ctx.moveTo(coordLineFrom.x, coordLineFrom.y);
+      ctx.lineTo(coordLineTo.x, coordLineTo.y);
+      ctx.stroke();
+    }
+}
+
+function pleaseDraw() {
+  var modulo = Number.parseInt(document.querySelector('[name=modulo]').value, 10);
+  var from = Number.parseInt(document.querySelector('[name=from]').value, 10);
+  var to = Number.parseInt(document.querySelector('[name=to]').value, 10);
+  
+  draw(modulo, from, to);
+}
+
+document.addEventListener("submit", function(event){
+  console.log(event.target);
+  event.preventDefault();
+  pleaseDraw();
+  return false;
+}, false);
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  document.querySelector('[name=modulo]').value = 10;
+  document.querySelector('[name=from]').value = 1;
+  document.querySelector('[name=to]').value = 10;
+  
+  pleaseDraw();
+});
+
+  </script>
+</head>
+<body>
+  <div>
+  <h1>Board</h1>
+  <canvas id="board" width='600' height='500'></canvas>
+  </div>
+  <div>
+  <h1>Settings</h1>
+  <form>
+    <label>modulo: <input type="text" name="modulo" /></label><br/>
+    <label>from: <input type="text" name="from"></label><br/>
+    <label>to: <input type="text" name="to"></label><br/>
+    <input type="submit" name="submit" value="submit"/>
+  </form>
+  </div>
+</body>
+</html>
