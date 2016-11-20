@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Animated Multiplication in a modulo circle</title>
+  <style>
+#board {
+  border: 1px solid black;
+}
+  </style>
+  <script>
+var modulo = 0;
+var currentValue = 0;
+var step = 0;
+var to = 0;
+var previousDate = new Date();
+
+function getCoord(i, cx, cy, cr, modulo) {
+  var angle_step = (Math.PI * 2)/modulo;
+  var alpha = (-Math.PI/2) + angle_step * i;
+  var x = cx + cr * Math.cos(alpha);
+  var y = cy + cr * Math.sin(alpha);
+  return {x: x, y: y};
+}
+
+function draw(modulo, value) {
+  const circleradius = 200;
+  const space_betw = circleradius * 3;
+  var board = document.getElementById('board');
+  var now = new Date();
+  var fps = 1/((Date.now() - previousDate)/1000);
+  previousDate = now;
+  console.log(now);
+  if (board.getContext) {
+    var ctx = board.getContext('2d');
+    ctx.clearRect(0, 0, board.width, board.height);
+    drawCircle(ctx, value, modulo, board.width/2, board.height/2, circleradius);
+    ctx.strokeStyle='rgb(0,196,0)';
+    ctx.strokeText(value, 5, 15);
+    ctx.strokeText(fps + ' fps', board.width-50, 15 );
+  }
+}
+
+function drawCircle(ctx, table, modulo, cx, cy, cr) {
+    ctx.strokeStyle='rgb(0,0,0)';
+    ctx.beginPath();
+    ctx.arc(cx,cy,cr,0,Math.PI*2, true);
+    ctx.stroke();
+
+    for (var i = 0; i < modulo; i++) {
+      var coordNum = getCoord(i, cx-5, cy+5, cr+14, modulo);
+      // letter
+      ctx.strokeStyle='rgb(0,0,0)';
+      ctx.strokeText(i, coordNum.x, coordNum.y);
+      var coordLineFrom = getCoord(i+1, cx, cy, cr, modulo);
+      var coordLineTo = getCoord( ((i+1)*table)%modulo, cx, cy, cr, modulo);
+      // lines
+      ctx.strokeStyle='rgb(255,0,0)';
+      ctx.beginPath();
+      ctx.moveTo(coordLineFrom.x, coordLineFrom.y);
+      ctx.lineTo(coordLineTo.x, coordLineTo.y);
+      ctx.stroke();
+    }
+}
+
+function init() {
+  var _modulo = Number.parseInt(document.querySelector('[name=modulo]').value, 10);
+  var _from = Number.parseInt(document.querySelector('[name=from]').value, 10);
+  var _to = Number.parseInt(document.querySelector('[name=to]').value, 10);
+  var _step = Number.parseFloat(document.querySelector('[name=step]').value, 10);
+  to = _to;
+  step = _step;
+  currentValue = _from;
+  modulo = _modulo;
+
+  window.requestAnimationFrame(animation);
+}
+
+function animation() {
+  draw(modulo, currentValue);
+  currentValue += step;
+  if (currentValue < to) {
+    window.requestAnimationFrame(animation);
+  }
+}
+
+document.addEventListener("submit", function(event){
+  console.log(event.target);
+  event.preventDefault();
+  init();
+  return false;
+}, false);
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  document.querySelector('[name=modulo]').value = 10;
+  document.querySelector('[name=from]').value = 1;
+  document.querySelector('[name=to]').value = 10;
+  document.querySelector('[name=step]').value = 0.01;
+  init();
+});
+
+  </script>
+</head>
+<body>
+  <div>
+  <h1>Board</h1>
+  <canvas id="board" width='600' height='500'></canvas>
+  </div>
+  <div>
+  <h1>Settings</h1>
+  <form>
+    <label>modulo: <input type="text" name="modulo" /></label><br/>
+    <label>from: <input type="text" name="from"></label><br/>
+    <label>to: <input type="text" name="to"></label><br/>
+    <label>step: <input type="text" name="step"></label><br/>
+    <input type="submit" name="submit" value="submit"/>
+  </form>
+  </div>
+</body>
+</html>
