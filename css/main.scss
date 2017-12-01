@@ -965,6 +965,10 @@ $baseurl: '{{ site.baseurl }}/images';
 		@include vendor('align-items', 'center');
 		@include vendor('display', 'flex');
 
+		>a {
+			@include vendor('display', 'flex');
+		}
+
 		.image {
 			@include vendor('order', '1');
 			border-radius: 0;
